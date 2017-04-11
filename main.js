@@ -5,22 +5,22 @@ let value = ['A','2','3','4',
 let deck = new Array();
 
 function createDeck(){
-  deck = new Array();
-  for(let i = 0; i < value.length; i++){
-    for(let j = 0; j <suit.length; j++){
-      let val = parseInt(value[i]);
-      if (value[i] === 'J' || value[i] === 'Q' || value[i] === 'K'){
+  deck = new Array(); //reset pre-existing deck.
+  for(let i = 0; i < value.length; i++){ //goes through 1-K
+    for(let j = 0; j <suit.length; j++){ //goes through spades through clubs
+      let val = parseInt(value[i]); //assuming its not a letter it'll be what the number value is
+      if (value[i] === 'J' || value[i] === 'Q' || value[i] === 'K'){ // JQK = 10
         val = 10;
       }
-      else if (value[i] === 'A'){
+      else if (value[i] === 'A'){ //default for A is 11
         val = 11;
       }
-      let card = {
+      let card = { //constructs a card object to fit all this stuff into
         Value: value[i],
         Suit: suit[j],
         Val: val
       };
-      deck.push(card);
+      deck.push(card); //hello new deck
     }
   }
 }
