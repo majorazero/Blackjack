@@ -3,6 +3,18 @@ let value = ['A','2','3','4',
             '5','6','7','8',
             '9','10','J','Q','K'];
 let deck = [];
+function Player(){ //constructor for a player
+  this.c5 = 10;
+  this.c10 = 5;
+  this.c25 = 4;
+  this.c100 = 3;
+  this.c500 = 1;
+  this.myMoney = function(){
+    return this.c5*5 + this.c10*10 +
+          this.c25*25 + this.c100*100 + this.c500*500;
+  };
+  this.hand = [[]]; //everyone starts with 1 potential hand, we set an array in cases player want to split. 
+}
 
 function createDeck(){
   deck = []; //reset pre-existing deck.
@@ -24,6 +36,7 @@ function createDeck(){
     }
   }
 }
+
 
 function valueOfHand(hand){ //find the value of a player's Hand based on an array of cards
   let value = 0;
