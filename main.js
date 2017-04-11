@@ -13,7 +13,13 @@ function Player(){ //constructor for a player
     return this.c5*5 + this.c10*10 +
           this.c25*25 + this.c100*100 + this.c500*500;
   };
-  this.hand = [[]]; //everyone starts with 1 potential hand, we set an array in cases player want to split. 
+  this.hand = [[]]; //everyone starts with 1 potential hand, we set an array in cases player want to split.
+}
+
+function housePlay(hand){ //dictates House's behavior, what does it do with the hand its dealt when it is its turn to play?
+  while (valueOfHand(hand) < 17){ //if the houses's cards is 16 or less, it will hit.
+    deal(hand,1);
+  }
 }
 
 function createDeck(){
