@@ -29,15 +29,15 @@ function valueOfHand(hand){ //find the value of a player's Hand based on an arra
   let value = 0;
   let aAmount = 0;
   for (let i = 0; i < hand.length; i++){
-    value += hand[i].Val;
-    if (hand[i].Value === 'A'){
+    value += hand[i].Val; //acrue total value of player's hand
+    if (hand[i].Value === 'A'){ // if the current value is an Ace, we'll increment the ace counter.
       aAmount++;
     }
-    if (hand[i].Value === 'A' && aAmount != 0){
-      value -= 10;
+    if (hand[i].Value === 'A' && aAmount != 0){  //There can technically only be a max of 1 "11" Ace in a hand at any one time
+      value -= 10; //Subsequent aces are just "1"
     }
   }
-  while (value > 21 && aAmount != 0){
+  while (value > 21 && aAmount != 0){ //Final catch for illegal hands i.e. "16 + A = 27" or "18+A+A+A = 31 or 51"
     value -= 10;
     aAmount--;
   }
